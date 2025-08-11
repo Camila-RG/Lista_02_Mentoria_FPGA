@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use ieee.math_real.all;  -- Adicionado para ceil e log2
+use ieee.math_real.all;
 
 entity tb_somador2 is
 end entity tb_somador2;
@@ -44,7 +44,7 @@ begin
         end loop;
         wait for (N+1)*PERIOD;  -- Volta para 50 ns de margem
 
-        -- Verifique output no simulador (deve ser 0000011000 para N=4, soma=12)
+        -- Output no simulador (0000011000 para N=4, soma=12)
         assert unsigned(output) = to_unsigned(12, output'length)
             report "Erro na soma! Esperado 12, obtido " & integer'image(to_integer(unsigned(output))) severity error;
 
@@ -55,7 +55,7 @@ begin
         input(7 downto 0)   <= "00000110";  -- Quarto elemento
         wait for (N+1)*PERIOD;  -- Volta para 50 ns de margem
 
-        -- Verifique output no simulador (deve ser 000011011 para 27 em 10 bits)
+        -- Output no simulador (000011011 para 27 em 10 bits)
         assert unsigned(output) = to_unsigned(27, output'length)
             report "Erro na soma! Esperado 27, obtido " & integer'image(to_integer(unsigned(output))) severity error;
 
