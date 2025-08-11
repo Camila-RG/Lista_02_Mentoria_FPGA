@@ -44,7 +44,7 @@ begin
         end loop;
         wait for (N+1)*PERIOD;  -- Espera latência + extra
 
-        -- Verifique output no simulador (deve ser 00000100 para N=4)
+        -- Output no simulador (00000100 para N=4)
         assert unsigned(output) = to_unsigned(N, output'length)
             report "Erro na soma!" severity error;
 
