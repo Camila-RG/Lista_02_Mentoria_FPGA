@@ -42,7 +42,7 @@ begin
         for i in 0 to N-1 loop
             input((i+1)*M - 1 downto i*M) <= "00000011";
         end loop;
-        wait for (N+1)*PERIOD;  -- Espera latência + extra
+        wait for (N+1)*PERIOD;  -- Volta para 50 ns de margem
 
         -- Verifique output no simulador (deve ser 0000011000 para N=4, soma=12)
         assert unsigned(output) = to_unsigned(12, output'length)
@@ -53,7 +53,7 @@ begin
         input(23 downto 16) <= "00000111";  -- Segundo elemento
         input(15 downto 8)  <= "00000111";  -- Terceiro elemento
         input(7 downto 0)   <= "00000110";  -- Quarto elemento
-        wait for (N+1)*PERIOD;  -- Espera latência + extra
+        wait for (N+1)*PERIOD;  -- Volta para 50 ns de margem
 
         -- Verifique output no simulador (deve ser 000011011 para 27 em 10 bits)
         assert unsigned(output) = to_unsigned(27, output'length)
