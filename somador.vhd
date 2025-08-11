@@ -100,7 +100,6 @@ begin
     debug_sum <= chain(N);
 end architecture struct;
 
--- Repetir library/use para a próxima unidade (adder)
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
